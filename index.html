@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Avaliação da Fase de Vida</title>
+  <style>
+   
+   body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: yellowgreen;
+}
+
+#title {
+    border-bottom: solid 2px black;
+}
+h1 {
+  color: #333;
+}
+
+#result {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 3px #007BFF;
+}
+
+  </style>
+</head>
+
+<body>
+  <h1>Avaliação da Fase de Vida</h1>
+  <div id="result"></div>
+  <label for="name">Nome:</label>
+  <input type="text" id="name" required>
+  <label for="age">Idade:</label>
+  <input type="number" id="age" required>
+  <button onclick="avaliarFaseVida()">Avaliar a idade</button>
+  
+
+  <script>
+    function avaliarFaseVida() {
+      const name = document.getElementById('name').value;
+      const age = parseInt(document.getElementById('age').value);
+      let result = '';
+
+      if (isNaN(age)) {
+        result = 'Por favor, insira uma idade válida.';
+      } else {
+        if (age <= 11) {
+          result = `${name}, você é uma criança.`;
+        } else if (age <= 20) {
+          result = `${name}, você é um adolescente.`;
+        } else if (age <= 65) {
+          result = `${name}, você é um adulto.`;
+        } else {
+          result = `${name}, você é um idoso.`;
+        }
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+
+</html>
